@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 import Layout from "../components/layout"
 import Guitarra from "../components/guitarra"
 import { textoCargando } from "../utils/helpers"

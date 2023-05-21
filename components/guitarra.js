@@ -1,12 +1,26 @@
 import Image from "next/image"
 import Link from "next/link"
 import styles from '../styles/guitarras.module.css'
+import { useState } from "react"
 
 
 
-export default function Guitarra({guitarra}) {
+
+export default function Guitarra({guitarra}) {  
 
 const {descripcion, imagen, nombre, precio, url} = guitarra
+
+
+
+// Cargando ver Producto
+const [isLoading, setIsLoading] = useState(false);
+
+
+const handleClick = () => {
+  setIsLoading(true);
+};
+
+
 
 
 
@@ -19,8 +33,11 @@ const {descripcion, imagen, nombre, precio, url} = guitarra
       <p className={styles.descripcion}>{descripcion}</p>
       <p className={styles.precio}>${precio}</p>
       <Link legacyBehavior href={`/guitarras/${url}`}>
-        <a className={`${styles.enlace} ver-producto`}>Ver Producto</a>
+      <a onClick={handleClick} className={`${styles.enlace} ver-producto`}>
+            {isLoading ? "Cargando..." : "Ver Producto"}</a>
       </Link>
+
+      
 
     </div>
     </div>

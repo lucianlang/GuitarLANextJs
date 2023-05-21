@@ -1,36 +1,32 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# GuitarLA - Next.js
 
-## Getting Started
+GuitarLA is an online guitar store built using React and Next.js. This project was developed as part of the course "Next.js and React - La Guía Completa" by Juan Pablo de la Torre Valdez on Udemy. It incorporates various features and concepts, including styled components, API integration with getStaticProps and getServerSideProps, dynamic routing with getStaticPaths and getStaticProps, and the usage of Strapi and Cloudinary to create the API. Additionally, some more features were included by myself like a custom cart pop-up feature that was implemented using the Toastify library.
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+- Stylish UI using styled components
+- Integration with an API using getStaticProps and getServerSideProps
+- Dynamic routing using getStaticPaths and getStaticProps
+- Custom cart pop-up feature with Toastify
+- Seamless integration with Strapi and Cloudinary
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Installation
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+1. Clone the repository: `git clone https://github.com/your-username/guitarla-next.git`
+2. Install the dependencies: `npm install`
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+## Usage
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+1. Start the development server: `npm run dev`
+2. Open your browser and visit: `http://localhost:3000`
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Credits
 
-## Learn More
+This project was developed following the course "Next.js and React - The Complete Guide" by Juan Pablo de la Torre Valdez on Udemy. Special thanks to Juan Pablo for his valuable teachings and guidance.
 
-To learn more about Next.js, take a look at the following resources:
+## License
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+GuitarLA is licensed under the MIT License.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+* You are free to use, modify, and distribute this project, subject to the terms and conditions of the MIT License.
+* See the [LICENSE](LICENSE) file for more information.

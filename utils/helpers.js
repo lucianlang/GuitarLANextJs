@@ -12,18 +12,7 @@ export const formatearFecha = fecha => {
 
 
 
-export const popupATC = () => {
 
-  const valoresDelCarrito = JSON.parse(localStorage.getItem("carrito"))
-
-  const sumaTotal = valoresDelCarrito.map(producto => producto.cantidad).reduce((total, sigProducto) => total + sigProducto, 0);
-
-  if (sumaTotal > 0) { document.querySelector('.popup').style.display = "block" } else {
-    document.querySelector('.popup').style.display = "none"
-  }
-  
-  return popupATC
-}
 
 
 export const textoCargando = () => {

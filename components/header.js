@@ -1,23 +1,22 @@
-import { useEffect } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import styles from '../styles/header.module.css'
-import { popupATC } from '../utils/helpers'
+import { ContextCart } from '../context/context'
+import { useContext } from 'react'
+
 
 export default function Header() {
 
     const router = useRouter()
+    const { popUp } = useContext(ContextCart)
 
-    useEffect(()=> {
-        popupATC()
-      }, [])
 
     return (
         <header className={styles.header}>
             <div className={`contenedor ${styles.barra}`}>
                 <Link legacyBehavior href="/">
-                    <Image src='/img/logo.svg' width={300} height={40} alt='imagen logotipo' />
+                    <Image className={styles.logo} src='/img/logo.svg' width={300} height={40} alt='imagen logotipo' />
                 </Link>
                 <nav className={`navegacion ${styles.navegacion}`}>
                     <Link legacyBehavior href="/">
@@ -48,8 +47,7 @@ export default function Header() {
                         <a>
                             <div className={styles.contenedorCarrito}>
                             <Image width={30} height={25} src="/img/carrito.png" alt="imagen carrito"/>
-                            <div className={`${styles.popup} popup`}></div>
-                            </div>
+                            <div className={`${styles.popup} popup ${popUp ? '' : styles.hidden}`}></div></div>
                         </a>
                     </Link>
 

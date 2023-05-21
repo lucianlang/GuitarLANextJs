@@ -1,0 +1,52 @@
+.popup {
+    padding: 20px 5px;
+}
+.success {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.divider {
+    border-top: 1px solid #bbb;
+}
+.enlace {
+    margin-top: 2rem;
+    display: block;
+    background-color: var(--black);
+    color: var(--white);
+    text-decoration: none;
+    padding: 1rem;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 1.4rem;
+    font-weight: 700;
+    transition-property: background-color;
+    transition-duration: 300ms;
+}
+.enlace:hover {
+    background-color: var(--primary);
+}
+.nombre {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 400;
+}
+.cantidad {
+    margin: 5px 0;
+    font-size: 17px;
+}
+.agregoText {
+    margin: 0 0 0 15px;
+}
+.toastContainer {
+    display: flex;
+    align-items: center;
+}
+.textContainer {
+    margin-left: 7px;
+}
+.checkIcon {
+    height: 35px;
+    width: 35px;
+    color: #07bc0c;
+}
