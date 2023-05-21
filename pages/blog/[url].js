@@ -11,8 +11,8 @@ export default function Post({post}) {
         title={titulo}
     >
       <article className={`${styles.post} ${styles['mt-3']}`}>
-        <Image src={imagen.data.attributes.url} width={1000} height={400} alt={`imagen blog ${titulo}`}/>
-    
+        <Image src={imagen.data[0].attributes.url} width={1000} height={400} alt={`imagen blog ${titulo}`}/>
+    {console.log(post)}
     <div className={styles.contenido}>
         <h3>{titulo}</h3>
         <p className={styles.fecha}>{formatearFecha(publishedAt)}</p>

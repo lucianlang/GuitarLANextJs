@@ -6,6 +6,9 @@
     max-width: 70rem;
     margin: 0 auto;
 }
+.loading:hover {
+    background-color: #e5b45f!important;
+}
 .contenido {
     padding: 1rem;
 }
@@ -41,6 +44,9 @@
     transition-property: background-color;
     transition-duration: 300ms;
 }
+.enlaceCargando {
+    background-color: rgb(75, 75, 75);
+}
 .enlace:hover {
     background-color: var(--primary);
 }
@@ -71,6 +77,7 @@
     color: var(--white);
     transition-property: background-color;
     transition-duration: 300ms;
+    margin: 0;
 }
 .formulario input[type="submit"]:hover {
     background-color: var(--primary);

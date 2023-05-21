@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 import Layout from "../components/layout"
 import Guitarra from "../components/guitarra"
 import { textoCargando } from "../utils/helpers"
@@ -33,7 +33,7 @@ useEffect(()=>{
     )
 }
 
-/* export async function getStaticProps(){
+export async function getStaticProps(){
     const respuesta = await fetch(`${process.env.API_URL}/guitarras?populate=imagen`)
     const {data: guitarras} = await respuesta.json()
 
@@ -42,9 +42,9 @@ useEffect(()=>{
             guitarras
         }
     }
-} */
+}
 
-export async function getServerSideProps() {
+/* export async function getServerSideProps() {
     const respuesta = await fetch(`${process.env.API_URL}/guitarras?populate=imagen`)
     const { data: guitarras } = await respuesta.json()
 
@@ -53,4 +53,4 @@ export async function getServerSideProps() {
             guitarras
         }
     }
-}
+} */

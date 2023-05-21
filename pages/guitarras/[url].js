@@ -1,46 +1,63 @@
 import { useState } from 'react'
 import Image from "next/image"
-import { popupATC } from '../../utils/helpers'
 import styles from '../../styles/guitarras.module.css'
 import Layout from "../../components/layout"
+import CartPopUp from '../../components/cartPopUp'
+import { toast } from 'react-toastify';
 
 export default function Producto({ guitarra, agregarCarrito }) {
 
     const [cantidad, setCantidad] = useState(0)
     const { nombre, descripcion, imagen, precio } = guitarra[0].attributes
 
+    const [isLoading, setIsLoading] = useState(false);
+
+    const handleClick = () => {
+        setIsLoading(true);
+    };
+
     const handleSubmit = e => {
         e.preventDefault()
 
         if (cantidad < 1) {
-            alert('Cantidad no válida')
+            toast.error('Cantidad no válida!', {
+                position: toast.POSITION.TOP_RIGHT
+            });
+            setIsLoading(false);
             return
         }
-        // Añadiendo al carrito
-        const ATCbtn = document.querySelector('[type="submit"]')
-        setTimeout(() => {
 
-        ATCbtn.value = 'Agregando...'
-        ATCbtn.style.backgroundColor = '#e5b45f'
-    }, "100")
-
-        setTimeout(() => {
-            ATCbtn.value = 'Agregar al carrito'
-            ATCbtn.style.backgroundColor = 'var(--primary)'
-            popupATC()
-        alert('Se agregó al carrito!')
-        }, "1500")
-
-
-
-        // Construir objeto
-        const guitarraSeleccionada = {
+         // Construir objeto
+         const guitarraSeleccionada = {
             id: guitarra[0].id,
             imagen: imagen.data.attributes.url,
             nombre,
             precio,
             cantidad
         }
+        
+        // Añadiendo al carrito
+        setTimeout(() => {
+            toast.dismiss(); // Cerrar la notificación anterior antes de mostrar la nueva
+            toast.success(
+                <div>
+                <CartPopUp 
+                cantidad={guitarraSeleccionada.cantidad}
+                guitarra={guitarra[0].attributes}
+                />
+                
+              </div>, {
+                icon: false,
+                position: toast.POSITION.TOP_RIGHT,
+                className: 'toast-message'
+            }
+            );
+            setIsLoading(false);
+        }, "1500")
+
+
+
+       
         // Pasando la información
         agregarCarrito(guitarraSeleccionada)
     }
@@ -74,24 +91,18 @@ export default function Producto({ guitarra, agregarCarrito }) {
                             <option value="5">5</option>
                         </select>
 
-                        <input type="submit" value="Agregar al carrito" />
+                        <input
+                            className={`${styles.enlace} ${isLoading ? styles.loading : ''}`}
+                            onClick={handleClick}
+                            type="submit"
+                            value={isLoading ? 'Agregando...' : "Agregar al carrito"} />
                     </form>
                 </div>
             </div>
         </Layout>
     )
 }
-/* 
-export async function getServerSideProps({query: {url}}) {
-    const respuesta = await fetch(`${process.env.API_URL}/guitarras?filters[url]=${url}&populate=imagen`)
-    const {data: guitarra} = await respuesta.json()
 
-    return {
-        props: {
-            guitarra
-        }
-    }
-} */
 
 export async function getStaticPaths() {
     const respuesta = await fetch(`${process.env.API_URL}/guitarras`)
@@ -115,7 +126,7 @@ export async function getStaticProps({ params: { url } }) {
 
     return {
         props: {
-            guitarra
+            guitarra,
         }
     }
 }
