@@ -44,7 +44,7 @@ export default function Header() {
                     </Link>
 
                     <Link legacyBehavior href="/carrito">
-                        <a>
+                        <a className={router.pathname === '/carrito' ? styles.active : ''}>
                             <div className={styles.contenedorCarrito}>
                             <Image width={30} height={25} src="/img/carrito.png" alt="imagen carrito"/>
                             <div className={`${styles.popup} popup ${popUp ? '' : styles.hidden}`}></div></div>
