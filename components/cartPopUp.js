@@ -22,7 +22,7 @@ const CartPopUp = ({ cantidad, guitarra }) => {
 
             <div className={styles.toastContainer}>
                 <Image
-                    src={guitarra.imagen?.data.attributes.formats.medium.url}
+                    src={guitarra.imagen?.data.attributes.formats.small.url}
                     alt={guitarra.nombre}
                     width={60}
                     height={60} />
