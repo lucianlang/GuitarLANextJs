@@ -23,6 +23,22 @@ export default function Post({post}) {
   )
 }
 
+export async function getStaticPaths() {
+  const respuesta = await fetch(`${process.env.API_URL}/posts`)
+  const { data } = await respuesta.json()
+
+  const paths = data.map(post => ({
+      params: {
+          url: post.attributes.url
+      }
+  }))
+
+  return {
+      paths,
+      fallback: false
+  }
+}
+
 export async function getStaticProps({params: {url}}){
 const respuesta = await fetch(`${process.env.API_URL}/posts?filters[url]=${url}&populate=imagen`)
 const {data:post} = await respuesta.json()
